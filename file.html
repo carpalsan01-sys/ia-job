@@ -1,2267 +1,435 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IA Job | Turnos inteligentes para hostelería y turismo</title>
-  <meta
-    name="description"
-    content="IA Job conecta empresas de hostelería y turismo con trabajadores disponibles para cubrir turnos específicos mediante matching inteligente."
-  />
-  <meta name="theme-color" content="#2563EB" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="IA Job | Turnos inteligentes para hostelería y turismo" />
-  <meta
-    property="og:description"
-    content="La plataforma que conecta automáticamente empresas y trabajadores disponibles para cubrir turnos concretos."
-  />
-  <meta property="og:image" content="assets/og-image.jpg" />
-  <meta property="og:url" content="[iajob.example.com](https://iajob.example.com)" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IA Job | Encuentra personal para hostelería en minutos</title>
+
+<meta name="description" content="IA Job conecta restaurantes, hoteles y negocios de hostelería con trabajadores disponibles para cubrir turnos mediante Inteligencia Artificial.">
+
+<meta name="keywords" content="empleo hostelería, camareros, trabajo temporal, restaurantes, hoteles, personal, IA Job">
+
+<meta name="robots" content="index, follow">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#222;
+line-height:1.6;
+}
+
+header{
+background:#0F62FE;
+color:white;
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+font-size:28px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+padding:100px 20px;
+text-align:center;
+background:white;
+}
+
+.hero h2{
+font-size:48px;
+margin-bottom:20px;
+color:#0F62FE;
+}
+
+.hero p{
+max-width:800px;
+font-size:22px;
+margin-bottom:40px;
+}
+
+.button{
+display:inline-block;
+padding:15px 35px;
+background:#0F62FE;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin:10px;
+font-weight:bold;
+}
+
+.button:hover{
+background:#0043ce;
+}
+
+section{
+padding:70px 10%;
+}
+
+h3{
+font-size:36px;
+margin-bottom:40px;
+text-align:center;
+color:#0F62FE;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0px 0px 15px rgba(0,0,0,.08);
+}
+
+.card h4{
+margin-bottom:15px;
+color:#0F62FE;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.step{
+background:white;
+padding:25px;
+border-radius:10px;
+text-align:center;
+box-shadow:0px 0px 12px rgba(0,0,0,.08);
+}
+
+.price{
+background:white;
+text-align:center;
+padding:40px;
+border-radius:10px;
+box-shadow:0px 0px 15px rgba(0,0,0,.08);
+}
+
+.price h4{
+font-size:30px;
+color:#0F62FE;
+}
+
+.price p{
+font-size:45px;
+margin:20px 0;
+}
+
+footer{
+background:#0F62FE;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+</style>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="IA Job | Turnos inteligentes para hostelería y turismo" />
-  <meta
-    name="twitter:description"
-    content="Conecta empresas y trabajadores para cubrir turnos específicos con IA."
-  />
-  <meta name="twitter:image" content="assets/og-image.jpg" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
-  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin />
-  <link
-    href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&family=Poppins:wght@500;600;700&display=swap)"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --color-primary: #2563EB;
-      --color-primary-dark: #1D4ED8;
-      --color-success: #22C55E;
-      --color-success-dark: #16A34A;
-      --color-text: #0F172A;
-      --color-text-soft: #475569;
-      --color-border: #E2E8F0;
-      --color-bg: #FFFFFF;
-      --color-bg-soft: #F8FAFC;
-      --color-bg-muted: #F1F5F9;
-      --color-warning: #F59E0B;
-      --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
-      --shadow-md: 0 16px 40px rgba(15, 23, 42, 0.10);
-      --radius-sm: 12px;
-      --radius-md: 18px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --container: 1200px;
-      --transition: 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Inter", "Manrope", "Poppins", sans-serif;
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    select,
-    textarea {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-      border: 0;
-      background: none;
-    }
-
-    .u-hidden {
-      display: none !important;
-    }
-
-    .u-visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 16px;
-      top: -40px;
-      background: var(--color-primary);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 10px;
-      z-index: 1000;
-      transition: top var(--transition);
-    }
-
-    .skip-link:focus {
-      top: 16px;
-    }
-
-    .site-shell {
-      min-height: 100vh;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--container));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 72px 0;
-    }
-
-    .section--soft {
-      background: var(--color-bg-soft);
-    }
-
-    .section--muted {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    }
-
-    .section__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--color-primary);
-      border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .section__title {
-      margin: 0 0 12px;
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .section__lead {
-      max-width: 760px;
-      margin: 0;
-      color: var(--color-text-soft);
-      font-size: 1.05rem;
-    }
-
-    .section__header {
-      margin-bottom: 40px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .grid--2 {
-      grid-template-columns: 1fr;
-    }
-
-    .grid--3 {
-      grid-template-columns: 1fr;
-    }
-
-    .grid--4 {
-      grid-template-columns: 1fr;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      padding: 24px;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(37, 99, 235, 0.25);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      color: var(--color-success-dark);
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 12px 20px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn:focus-visible,
-    .nav__link:focus-visible,
-    .faq__button:focus-visible,
-    .tab-button:focus-visible,
-    .icon-button:focus-visible,
-    input:focus-visible,
-    select:focus-visible,
-    textarea:focus-visible {
-      outline: 3px solid rgba(37, 99, 235, 0.25);
-      outline-offset: 2px;
-    }
-
-    .btn--primary {
-      background: var(--color-primary);
-      color: #fff;
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
-    }
-
-    .btn--primary:hover {
-      background: var(--color-primary-dark);
-    }
-
-    .btn--secondary {
-      background: #fff;
-      color: var(--color-text);
-      border-color: var(--color-border);
-    }
-
-    .btn--secondary:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-    }
-
-    .btn--success {
-      background: var(--color-success);
-      color: #fff;
-    }
-
-    .btn--ghost {
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--color-primary);
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-      backdrop-filter: blur(12px);
-    }
-
-    .site-header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 76px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-family: "Manrope", sans-serif;
-      letter-spacing: -0.03em;
-    }
-
-    .brand__mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--color-primary) 0%, #60A5FA 100%);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
-    }
-
-    .nav {
-      display: none;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .nav__link {
-      color: var(--color-text-soft);
-      font-weight: 600;
-      transition: color var(--transition);
-    }
-
-    .nav__link:hover {
-      color: var(--color-primary);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .icon-button {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      border: 1px solid var(--color-border);
-      display: inline-grid;
-      place-items: center;
-      background: #fff;
-    }
-
-    .hero {
-      padding: 40px 0 72px;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.12), transparent 24%),
-        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-    }
-
-    .hero__grid {
-      display: grid;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .hero__title {
-      margin: 0 0 18px;
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-    }
-
-    .hero__subtitle {
-      margin: 0 0 28px;
-      max-width: 640px;
-      font-size: 1.08rem;
-      color: var(--color-text-soft);
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .hero__metrics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .metric {
-      padding: 16px;
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.35rem;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 420px;
-    }
-
-    .hero-visual__panel {
-      position: relative;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
-      border: 1px solid rgba(37, 99, 235, 0.12);
-      box-shadow: var(--shadow-md);
-      padding: 18px;
-      overflow: hidden;
-    }
-
-    .hero-visual__grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 14px;
-    }
-
-    .mock-card {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .mock-card__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .mock-card__title {
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .mock-card__sub {
-      color: var(--color-text-soft);
-      font-size: 0.92rem;
-      margin: 0;
-    }
-
-    .mock-stat {
-      padding: 14px;
-      border-radius: 16px;
-      background: var(--color-bg-soft);
-      border: 1px solid var(--color-border);
-    }
-
-    .mock-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .mock-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 16px;
-      border: 1px solid var(--color-border);
-      background: #fff;
-    }
-
-    .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #93C5FD, #2563EB);
-      flex-shrink: 0;
-    }
-
-    .phone-mock {
-      position: absolute;
-      right: -8px;
-      bottom: -10px;
-      width: 180px;
-      border-radius: 28px;
-      border: 10px solid #0F172A;
-      background: #fff;
-      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.22);
-      overflow: hidden;
-      animation: float 4.5s ease-in-out infinite;
-    }
-
-    .phone-mock__screen {
-      padding: 16px;
-      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
-      min-height: 300px;
-    }
-
-    .phone-mock__notch {
-      width: 70px;
-      height: 16px;
-      border-radius: 0 0 12px 12px;
-      background: #0F172A;
-      margin: 0 auto 12px;
-    }
-
-    .problem-card__icon,
-    .feature-card__icon,
-    .benefit-card__icon,
-    .panel-stat__icon {
-      width: 48px;
-      height: 48px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 16px;
-      background: rgba(37, 99, 235, 0.10);
-      color: var(--color-primary);
-      margin-bottom: 16px;
-    }
-
-    .list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 10px;
-    }
-
-    .list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: var(--color-text-soft);
-    }
-
-    .list__dot,
-    .list__check {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-      margin-top: 2px;
-      color: var(--color-success);
-    }
-
-    .flow {
-      display: grid;
-      gap: 14px;
-    }
-
-    .flow__track {
-      display: grid;
-      gap: 12px;
-      position: relative;
-    }
-
-    .flow__step {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 18px;
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .flow__number {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--color-primary);
-      color: #fff;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .steps-column {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .steps-column__head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .steps {
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .steps li {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px;
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      background: var(--color-bg-soft);
-    }
-
-    .steps li::before {
-      counter-increment: step;
-      content: counter(step);
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: rgba(37, 99, 235, 0.10);
-      color: var(--color-primary);
-      font-weight: 800;
-      display: grid;
-      place-items: center;
-    }
-
-    .comparison {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--color-border);
-      background: #fff;
-    }
-
-    .comparison th,
-    .comparison td {
-      padding: 16px;
-      text-align: left;
-      border-bottom: 1px solid var(--color-border);
-      vertical-align: top;
-    }
-
-    .comparison thead th {
-      background: #EFF6FF;
-      font-family: "Manrope", sans-serif;
-    }
-
-    .comparison tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .feature-card {
-      height: 100%;
-    }
-
-    .feature-card h3,
-    .benefit-card h3,
-    .plan-card h3,
-    .use-case h3,
-    .testimonial-card h3,
-    .panel-card h3,
-    .auth-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.12rem;
-      font-family: "Manrope", sans-serif;
-    }
-
-    .mockups {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .screen-card {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 26px;
-      padding: 12px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .screen {
-      min-height: 280px;
-      border-radius: 20px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #eff6ff 0%, #ffffff 100%);
-      padding: 16px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .screen__topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .screen__block {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 12px;
-    }
-
-    .screen__footer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: auto;
-    }
-
-    .screen__footer span {
-      height: 10px;
-      border-radius: 999px;
-      background: var(--color-bg-muted);
-    }
-
-    .plans {
-      display: grid;
-      gap: 24px;
-    }
-
-    .plan-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .plan-card--featured {
-      border-color: rgba(37, 99, 235, 0.28);
-      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.14);
-    }
-
-    .plan-card__price {
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      margin: 16px 0;
-    }
-
-    .plan-card__price strong {
-      font-size: 2.3rem;
-      line-height: 1;
-      font-family: "Manrope", sans-serif;
-    }
-
-    .use-case {
-      position: relative;
-    }
-
-    .mini-flow {
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .mini-flow__item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 14px;
-      background: var(--color-bg-soft);
-      border: 1px solid var(--color-border);
-      font-size: 0.95rem;
-    }
-
-    .testimonial-card {
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .testimonial-placeholder {
-      border: 2px dashed var(--color-border);
-      border-radius: 18px;
-      padding: 18px;
-      color: var(--color-text-soft);
-      background: var(--color-bg-soft);
-    }
-
-    .faq {
-      display: grid;
-      gap: 14px;
-    }
-
-    .faq__item {
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      background: #fff;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .faq__button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 20px;
-      text-align: left;
-      font-weight: 700;
-      color: var(--color-text);
-      background: #fff;
-    }
-
-    .faq__panel {
-      padding: 0 20px 18px;
-      color: var(--color-text-soft);
-      display: none;
-    }
-
-    .faq__item[open] .faq__panel {
-      display: block;
-    }
-
-    .cta {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--color-primary) 0%, #1E40AF 100%);
-      color: #fff;
-      border-radius: var(--radius-xl);
-      padding: 36px;
-      box-shadow: 0 28px 50px rgba(37, 99, 235, 0.28);
-    }
-
-    .cta::before,
-    .cta::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.10);
-      pointer-events: none;
-    }
-
-    .cta::before {
-      width: 180px;
-      height: 180px;
-      top: -60px;
-      right: -40px;
-    }
-
-    .cta::after {
-      width: 120px;
-      height: 120px;
-      bottom: -30px;
-      left: -20px;
-    }
-
-    .cta__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .cta .btn--secondary {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .site-footer {
-      padding: 32px 0 40px;
-      border-top: 1px solid var(--color-border);
-      background: #fff;
-    }
-
-    .site-footer__inner {
-      display: grid;
-      gap: 18px;
-    }
-
-    .footer-links,
-    .footer-socials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .footer-links a,
-    .footer-socials a {
-      color: var(--color-text-soft);
-      font-weight: 600;
-    }
-
-    .footer-links a:hover,
-    .footer-socials a:hover {
-      color: var(--color-primary);
-    }
-
-    .portal-section {
-      padding: 72px 0;
-      border-top: 1px solid var(--color-border);
-      background: var(--color-bg-soft);
-    }
-
-    .portal-header {
-      margin-bottom: 28px;
-    }
-
-    .portal-grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .auth-card,
-    .panel-card {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      padding: 24px;
-    }
-
-    .form {
-      display: grid;
-      gap: 16px;
-    }
-
-    .form__row {
-      display: grid;
-      gap: 16px;
-    }
-
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field label {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      min-height: 48px;
-      border-radius: 14px;
-      border: 1px solid var(--color-border);
-      padding: 12px 14px;
-      background: #fff;
-      color: var(--color-text);
-      transition: border-color var(--transition), box-shadow var(--transition);
-    }
-
-    .field textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
-      outline: none;
-    }
-
-    .form__hint {
-      color: var(--color-text-soft);
-      font-size: 0.9rem;
-      margin: -4px 0 0;
-    }
-
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .tab-button {
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--color-border);
-      background: #fff;
-      font-weight: 700;
-      color: var(--color-text-soft);
-    }
-
-    .tab-button.is-active {
-      background: var(--color-primary);
-      color: #fff;
-      border-color: var(--color-primary);
-    }
-
-    .dashboard {
-      display: grid;
-      gap: 24px;
-    }
-
-    .dashboard__stats {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .panel-stat {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .panel-stat strong {
-      display: block;
-      font-size: 1.8rem;
-      line-height: 1.1;
-      margin-bottom: 4px;
-      font-family: "Manrope", sans-serif;
-    }
-
-    .dashboard__content {
-      display: grid;
-      gap: 24px;
-    }
-
-    .panel-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .panel-table th,
-    .panel-table td {
-      padding: 12px 10px;
-      border-bottom: 1px solid var(--color-border);
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .panel-table th {
-      font-size: 0.9rem;
-      color: var(--color-text-soft);
-    }
-
-    .panel-table tr:last-child td {
-      border-bottom: 0;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-
-    .status--open {
-      background: rgba(37, 99, 235, 0.10);
-      color: var(--color-primary);
-    }
-
-    .status--ok {
-      background: rgba(34, 197, 94, 0.12);
-      color: var(--color-success-dark);
-    }
-
-    .status--warning {
-      background: rgba(245, 158, 11, 0.12);
-      color: #B45309;
-    }
-
-    .status--danger {
-      background: rgba(239, 68, 68, 0.10);
-      color: #B91C1C;
-    }
-
-    .panel-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .panel-list li {
-      padding: 14px;
-      border-radius: 16px;
-      background: var(--color-bg-soft);
-      border: 1px solid var(--color-border);
-    }
-
-    .kpi-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .anchor-offset {
-      scroll-margin-top: 92px;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @media (min-width: 768px) {
-      .section {
-        padding: 96px 0;
-      }
-
-      .grid--2,
-      .plans,
-      .portal-grid,
-      .dashboard__content,
-      .form__row,
-      .dashboard__stats,
-      .kpi-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .grid--3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .grid--4 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero__grid {
-        grid-template-columns: 1.05fr 0.95fr;
-      }
-
-      .site-footer__inner {
-        grid-template-columns: 1fr auto auto;
-        align-items: center;
-      }
-
-      .mockups {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .nav {
-        display: flex;
-      }
-
-      .icon-button--menu {
-        display: none;
-      }
-
-      .grid--4,
-      .dashboard__stats,
-      .kpi-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .dashboard__content {
-        grid-template-columns: 1.3fr 0.7fr;
-      }
-
-      .portal-grid--3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 767px) {
-      .phone-mock {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        width: 100%;
-        max-width: 240px;
-        margin: 20px auto 0;
-      }
-
-      .hero-visual__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .comparison {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-
-      .cta {
-        padding: 28px 22px;
-      }
-    }
-  </style>
 </head>
+
 <body>
-  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
-
-  <div class="site-shell">
-    <header class="site-header" aria-label="Cabecera principal">
-      <div class="container site-header__inner">
-        <a class="brand" href="#inicio" aria-label="IA Job, ir al inicio">
-          <span class="brand__mark" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 12C4 7.582 7.582 4 12 4C16.418 4 20 7.582 20 12C20 16.418 16.418 20 12 20H4V12Z" fill="currentColor"></path>
-              <path d="M9 12H15M12 9V15" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
-            </svg>
-          </span>
-          <span>IA Job</span>
-        </a>
-
-        <nav class="nav" aria-label="Navegación principal">
-          <a class="nav__link" href="#problema">Problema</a>
-          <a class="nav__link" href="#solucion">Solución</a>
-          <a class="nav__link" href="#funciona">Cómo funciona</a>
-          <a class="nav__link" href="#funcionalidades">Funcionalidades</a>
-          <a class="nav__link" href="#planes">Planes</a>
-          <a class="nav__link" href="#faq">FAQ</a>
-          <a class="nav__link" href="#portales">Paneles</a>
-        </nav>
-
-        <div class="header-actions">
-          <a class="btn btn--secondary" href="#login">Acceder</a>
-          <a class="btn btn--primary" href="#cta-final">Solicitar demo</a>
-          <button class="icon-button icon-button--menu" type="button" aria-label="Abrir menú">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <main id="contenido-principal">
-      <section id="inicio" class="hero anchor-offset" aria-labelledby="hero-title">
-        <div class="container hero__grid">
-          <div>
-            <span class="section__eyebrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3L14.8 8.7L21 9.6L16.5 13.9L17.6 20L12 17L6.4 20L7.5 13.9L3 9.6L9.2 8.7L12 3Z" fill="currentColor"></path>
-              </svg>
-              Matching inteligente para hostelería y turismo
-            </span>
-
-            <h1 id="hero-title" class="hero__title">El personal que necesitas, justo cuando lo necesitas</h1>
-
-            <p class="hero__subtitle">
-              IA Job conecta automáticamente empresas de hostelería y turismo con trabajadores disponibles
-              para turnos concretos. Publica una necesidad, deja que la IA seleccione a los mejores perfiles
-              y cubre turnos en minutos con menos fricción y más control.
-            </p>
-
-            <div class="hero__actions" role="group" aria-label="Acciones principales">
-              <a class="btn btn--primary" href="#registro-empresa">Soy empresa</a>
-              <a class="btn btn--success" href="#registro-trabajador">Busco trabajo</a>
-            </div>
-
-            <div class="hero__metrics" aria-label="Indicadores destacados">
-              <article class="metric">
-                <strong>&lt; 5 min</strong>
-                <span>para lanzar una solicitud de turno</span>
-              </article>
-              <article class="metric">
-                <strong>Top 3</strong>
-                <span>candidatos priorizados por IA</span>
-              </article>
-              <article class="metric">
-                <strong>24/7</strong>
-                <span>disponibilidad para picos de demanda</span>
-              </article>
-              <article class="metric">
-                <strong>+Control</strong>
-                <span>en selección, historial y facturación</span>
-              </article>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-label="Vista previa visual de la plataforma">
-            <div class="hero-visual__panel">
-              <div class="hero-visual__grid">
-                <article class="mock-card" aria-label="Vista de dashboard para empresa">
-                  <div class="mock-card__header">
-                    <div>
-                      <p class="mock-card__title">Dashboard empresa</p>
-                      <p class="mock-card__sub">Turnos abiertos, candidatos y cobertura</p>
-                    </div>
-                    <span class="badge">Cobertura activa</span>
-                  </div>
-
-                  <div class="grid grid--2" style="margin-bottom:14px;">
-                    <div class="mock-stat">
-                      <strong>18</strong>
-                      <div>Solicitudes este mes</div>
-                    </div>
-                    <div class="mock-stat">
-                      <strong>92%</strong>
-                      <div>Turnos cubiertos</div>
-                    </div>
-                  </div>
-
-                  <div class="mock-list">
-                    <div class="mock-item">
-                      <div class="avatar" aria-hidden="true"></div>
-                      <div>
-                        <strong>Lucía R.</strong><br />
-                        <small>Camarera · 4.9 · Disponible hoy</small>
-                      </div>
-                    </div>
-                    <div class="mock-item">
-                      <div class="avatar" aria-hidden="true"></div>
-                      <div>
-                        <strong>Ahmed S.</strong><br />
-                        <small>Recepción · 4.8 · A 2.1 km</small>
-                      </div>
-                    </div>
-                    <div class="mock-item">
-                      <div class="avatar" aria-hidden="true"></div>
-                      <div>
-                        <strong>Marta G.</strong><br />
-                        <small>Eventos · 4.7 · Aceptación rápida</small>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="mock-card" aria-label="Vista de contexto operativo">
-                  <div class="mock-card__header">
-                    <div>
-                      <p class="mock-card__title">Contexto operativo</p>
-                      <p class="mock-card__sub">Restaurante, personal y actividad</p>
-                    </div>
-                  </div>
-
-                  <div class="mock-stat" style="margin-bottom:12px;">
-                    <strong>Viernes noche</strong>
-                    <div>Pico de demanda detectado en sala y terraza</div>
-                  </div>
-
-                  <div class="mock-stat" style="margin-bottom:12px;">
-                    <strong>Turno solicitado</strong>
-                    <div>2 camareros · 20:00 - 01:00 · Centro Madrid</div>
-                  </div>
-
-                  <div class="mock-stat">
-                    <strong>IA sugiere</strong>
-                    <div>Perfiles con experiencia, cercanía y mejor valoración</div>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <aside class="phone-mock" aria-label="Mockup móvil de la aplicación">
-              <div class="phone-mock__screen">
-                <div class="phone-mock__notch" aria-hidden="true"></div>
-                <span class="badge">App móvil</span>
-                <h3 style="margin:12px 0 8px; font-family:Manrope, sans-serif;">Turno disponible</h3>
-                <div class="mock-stat" style="margin-bottom:10px;">
-                  <strong>Hotel Costa Azul</strong>
-                  <div>Recepción · 16:00 - 00:00</div>
-                </div>
-                <div class="mock-stat" style="margin-bottom:10px;">
-                  <strong>Salario</strong>
-                  <div>12€/hora · Pago validado</div>
-                </div>
-                <div class="mock-stat">
-                  <strong>Compatibilidad IA</strong>
-                  <div>96% con tu experiencia y disponibilidad</div>
-                </div>
-                <div style="display:grid; gap:8px; margin-top:14px;">
-                  <a class="btn btn--primary" href="#registro-trabajador">Aceptar turno</a>
-                  <a class="btn btn--secondary" href="#mockups">Ver más</a>
-                </div>
-              </div>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      <section id="problema" class="section anchor-offset" aria-labelledby="problema-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">El problema</span>
-            <h2 id="problema-title" class="section__title">Cubrir turnos urgentes sigue siendo lento, manual y poco eficiente</h2>
-            <p class="section__lead">
-              La hostelería y el turismo necesitan rapidez, previsión y personal confiable. Los procesos
-              tradicionales generan fricción en ambos lados y terminan afectando al negocio y a la experiencia laboral.
-            </p>
-          </div>
-
-          <div class="grid grid--3">
-            <article class="card problem-card">
-              <div class="problem-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 8V12L15 15M21 12C21 16.971 16.971 21 12 21C7.029 21 3 16.971 3 12C3 7.029 7.029 3 12 3C16.971 3 21 7.029 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-              </div>
-              <h3>Para empresas</h3>
-              <ul class="list">
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Dificultad para encontrar personal disponible en el momento exacto.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Uso de llamadas, WhatsApp o contactos dispersos sin trazabilidad.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Poca capacidad para evaluar rápidamente experiencia, cercanía o fiabilidad.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card problem-card">
-              <div class="problem-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M16 11C17.657 11 19 9.657 19 8C19 6.343 17.657 5 16 5C14.343 5 13 6.343 13 8C13 9.657 14.343 11 16 11Z" stroke="currentColor" stroke-width="2"></path>
-                  <path d="M8 13C10.209 13 12 11.209 12 9C12 6.791 10.209 5 8 5C5.791 5 4 6.791 4 9C4 11.209 5.791 13 8 13Z" stroke="currentColor" stroke-width="2"></path>
-                  <path d="M8 15C4.686 15 2 17.239 2 20V21H14V20C14 17.239 11.314 15 8 15Z" stroke="currentColor" stroke-width="2"></path>
-                  <path d="M16 13C13.791 13 12 14.791 12 17V21H22V19C22 15.686 19.314 13 16 13Z" stroke="currentColor" stroke-width="2"></path>
-                </svg>
-              </div>
-              <h3>Para trabajadores</h3>
-              <ul class="list">
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Falta de acceso a turnos compatibles con su disponibilidad real.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Procesos lentos, opacos o poco adaptados a trabajos por horas o temporada.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Menor visibilidad de experiencia, valoraciones y preferencias salariales.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card problem-card">
-              <div class="problem-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M3 17L9 11L13 15L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  <path d="M21 7H16M21 7V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </div>
-              <h3>El resultado</h3>
-              <ul class="list">
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Turnos sin cubrir o cubiertos tarde.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Pérdidas operativas, peor experiencia del cliente y estrés en el equipo.
-                </li>
-                <li>
-                  <svg class="list__dot" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <circle cx="12" cy="12" r="12"></circle>
-                  </svg>
-                  Menos oportunidades para trabajadores disponibles y preparados.
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="solucion" class="section section--soft anchor-offset" aria-labelledby="solucion-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">La solución</span>
-            <h2 id="solucion-title" class="section__title">Automatizamos el proceso para cubrir turnos con mejores decisiones en menos tiempo</h2>
-            <p class="section__lead">
-              IA Job organiza el flujo completo desde la necesidad operativa hasta la aceptación del turno,
-              priorizando perfiles por experiencia, disponibilidad, ubicación, valoraciones y encaje.
-            </p>
-          </div>
-
-          <div class="flow" aria-label="Flujo de funcionamiento de la plataforma">
-            <div class="flow__track">
-              <article class="flow__step">
-                <span class="flow__number">1</span>
-                <div><strong>Empresa</strong> entra en su panel y define la necesidad.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">2</span>
-                <div><strong>Solicita turno</strong> indicando puesto, horario, ubicación y condiciones.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">3</span>
-                <div><strong>IA analiza</strong> disponibilidad, experiencia, distancia, histórico y valoraciones.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">4</span>
-                <div><strong>Selecciona los 3 mejores</strong> perfiles para ese turno concreto.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">5</span>
-                <div><strong>Empresa elige</strong> al candidato o candidato finalista más conveniente.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">6</span>
-                <div><strong>Trabajador acepta</strong> desde app o panel web.</div>
-              </article>
-              <article class="flow__step">
-                <span class="flow__number">7</span>
-                <div><strong>Turno cubierto</strong> con confirmación, seguimiento y registro histórico.</div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="funciona" class="section anchor-offset" aria-labelledby="funciona-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">¿Cómo funciona?</span>
-            <h2 id="funciona-title" class="section__title">Un flujo simple para empresa y trabajador</h2>
-            <p class="section__lead">
-              La plataforma está pensada para reducir pasos y maximizar visibilidad. Cada perfil tiene su propio recorrido,
-              con herramientas específicas y datos organizados para actuar rápido.
-            </p>
-          </div>
-
-          <div class="grid grid--2">
-            <article class="steps-column" aria-labelledby="empresas-steps-title">
-              <div class="steps-column__head">
-                <div class="problem-card__icon" aria-hidden="true" style="margin-bottom:0;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 21V7C4 5.895 4.895 5 6 5H10L12 3H18C19.105 3 20 3.895 20 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M9 10H15M9 14H15M9 18H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 id="empresas-steps-title">Empresas</h3>
-                  <p class="mock-card__sub">6 pasos para cubrir un turno</p>
-                </div>
-              </div>
-
-              <ol class="steps">
-                <li><div><strong>Crear cuenta</strong> y completar perfil de negocio, sedes y roles habituales.</div></li>
-                <li><div><strong>Publicar solicitud</strong> con horario, puesto, salario y condiciones específicas.</div></li>
-                <li><div><strong>Activar matching</strong> para que la IA filtre y priorice candidatos.</div></li>
-                <li><div><strong>Revisar candidatos</strong> sugeridos con experiencia, distancia y valoraciones.</div></li>
-                <li><div><strong>Confirmar selección</strong> y enviar la propuesta final al trabajador.</div></li>
-                <li><div><strong>Gestionar el turno</strong> desde calendario, historial y facturación.</div></li>
-              </ol>
-            </article>
-
-            <article class="steps-column" aria-labelledby="trabajadores-steps-title">
-              <div class="steps-column__head">
-                <div class="problem-card__icon" aria-hidden="true" style="margin-bottom:0; background:rgba(34,197,94,0.12); color:var(--color-success-dark);">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 12C14.761 12 17 9.761 17 7C17 4.239 14.761 2 12 2C9.239 2 7 4.239 7 7C7 9.761 9.239 12 12 12Z" stroke="currentColor" stroke-width="2"></path>
-                    <path d="M4 22C4 17.582 7.582 14 12 14C16.418 14 20 17.582 20 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 id="trabajadores-steps-title">Trabajadores</h3>
-                  <p class="mock-card__sub">6 pasos para recibir y aceptar turnos</p>
-                </div>
-              </div>
-
-              <ol class="steps">
-                <li><div><strong>Registrarse</strong> con ciudad, experiencia, disponibilidad y salario mínimo.</div></li>
-                <li><div><strong>Completar perfil</strong> con habilidades, documentación y preferencias de trabajo.</div></li>
-                <li><div><strong>Activar disponibilidad</strong> por días, franjas horarias o temporadas.</div></li>
-                <li><div><strong>Recibir propuestas</strong> compatibles con su perfil y cercanía.</div></li>
-                <li><div><strong>Aceptar o rechazar</strong> turnos con información clara y notificaciones inmediatas.</div></li>
-                <li><div><strong>Construir historial</strong> con valoraciones, trabajos realizados y reputación.</div></li>
-              </ol>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="diferenciacion" class="section section--soft anchor-offset" aria-labelledby="diferenciacion-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Diferenciación</span>
-            <h2 id="diferenciacion-title" class="section__title">No somos un portal de empleo</h2>
-            <p class="section__lead">
-              IA Job está diseñada para operaciones reales, necesidad inmediata y asignación inteligente de turnos,
-              no para procesos de selección largos o vacantes tradicionales.
-            </p>
-          </div>
-
-          <div style="overflow-x:auto;">
-            <table class="comparison" aria-label="Tabla comparativa entre portales tradicionales e IA Job">
-              <thead>
-                <tr>
-                  <th>Aspecto</th>
-                  <th>Portales tradicionales</th>
-                  <th>IA Job</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Objetivo principal</strong></td>
-                  <td>Publicar ofertas y recibir candidaturas.</td>
-                  <td>Cubrir turnos concretos con rapidez y priorización inteligente.</td>
-                </tr>
-                <tr>
-                  <td><strong>Tiempo de respuesta</strong></td>
-                  <td>Lento, dependiente de búsquedas manuales.</td>
-                  <td>Ágil, con matching automático y shortlist inmediata.</td>
-                </tr>
-                <tr>
-                  <td><strong>Disponibilidad real</strong></td>
-                  <td>A menudo desactualizada o desconocida.</td>
-                  <td>Visible y configurable por cada trabajador.</td>
-                </tr>
-                <tr>
-                  <td><strong>Contexto operativo</strong></td>
-                  <td>Poco adaptado a picos, eventos o turnos urgentes.</td>
-                  <td>Diseñado para hostelería, turismo y temporalidad real.</td>
-                </tr>
-                <tr>
-                  <td><strong>Selección</strong></td>
-                  <td>Revisión manual de múltiples perfiles.</td>
-                  <td>Top 3 sugeridos por IA según encaje operativo.</td>
-                </tr>
-                <tr>
-                  <td><strong>Seguimiento</strong></td>
-                  <td>Fragmentado entre emails, llamadas y hojas externas.</td>
-                  <td>Centralizado en panel, calendario, historial y notificaciones.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section id="beneficios" class="section anchor-offset" aria-labelledby="beneficios-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Beneficios</span>
-            <h2 id="beneficios-title" class="section__title">Ventajas claras para ambos lados del mercado</h2>
-          </div>
-
-          <div class="grid grid--2">
-            <article class="card benefit-card">
-              <div class="benefit-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M3 12L12 3L21 12V20C21 20.53 20.789 21.039 20.414 21.414C20.039 21.789 19.53 22 19 22H5C4.47 22 3.961 21.789 3.586 21.414C3.211 21.039 3 20.53 3 20V12Z" stroke="currentColor" stroke-width="2"></path>
-                  <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2"></path>
-                </svg>
-              </div>
-              <h3>Para empresas</h3>
-              <ul class="list">
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Menos tiempo buscando personal y más rapidez cubriendo picos de demanda.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Mejor calidad de selección con criterios objetivos y trazables.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Menos dependencia de procesos manuales y contactos informales.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Historial, calendario y facturación centralizados en un mismo sistema.
-                </li>
-              </ul>
-            </article>
-
-            <article class="card benefit-card">
-              <div class="benefit-card__icon" aria-hidden="true" style="background:rgba(34,197,94,0.12); color:var(--color-success-dark);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 1V23M17 5H9.5C8.572 5 7.682 5.369 7.025 6.025C6.369 6.682 6 7.572 6 8.5C6 9.428 6.369 10.318 7.025 10.975C7.682 11.631 8.572 12 9.5 12H14.5C15.428 12 16.318 12.369 16.975 13.025C17.631 13.682 18 14.572 18 15.5C18 16.428 17.631 17.318 16.975 17.975C16.318 18.631 15.428 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </div>
-              <h3>Para trabajadores</h3>
-              <ul class="list">
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Acceso a turnos ajustados a disponibilidad, zona y experiencia real.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Más transparencia en condiciones, horarios y preferencias salariales.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Perfil profesional más visible gracias a historial y valoraciones.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Menos tiempo buscando y más oportunidades relevantes.
-                </li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="funcionalidades" class="section anchor-offset" aria-labelledby="funcionalidades-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Funcionalidades</span>
-            <h2 id="funcionalidades-title" class="section__title">Todo lo necesario para operar con agilidad</h2>
-          </div>
-
-          <div class="grid grid--4">
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3L13.9 8.1L19 10L13.9 11.9L12 17L10.1 11.9L5 10L10.1 8.1L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                </svg>
-              </div>
-              <h3>Matching mediante IA</h3>
-              <p>Ranking automático según disponibilidad, experiencia, geolocalización y valoraciones.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </div>
-              <h3>Gestión de turnos</h3>
-              <p>Creación, seguimiento, confirmación y registro histórico de cada solicitud.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"></rect>
-                  <path d="M16 3V7M8 3V7M3 11H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </div>
-              <h3>Calendario inteligente</h3>
-              <p>Visualiza disponibilidad, turnos activos y ocupación por sede o trabajador.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M15 17H20L19 15V10C19 6.686 16.314 4 13 4H11C7.686 4 5 6.686 5 10V15L4 17H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  <path d="M10 17C10 18.657 11.343 20 13 20C14.657 20 16 18.657 16 17" stroke="currentColor" stroke-width="2"></path>
-                </svg>
-              </div>
-              <h3>Notificaciones</h3>
-              <p>Avisos en tiempo real sobre propuestas, aceptación, cancelaciones y recordatorios.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21C16 17 19 13.866 19 10A7 7 0 1 0 5 10C5 13.866 8 17 12 21Z" stroke="currentColor" stroke-width="2"></path>
-                  <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"></circle>
-                </svg>
-              </div>
-              <h3>Geolocalización</h3>
-              <p>Priorización de perfiles por cercanía real al lugar del turno solicitado.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 17.5L7.298 20.09L8.196 14.795L4.392 11.16L9.649 10.39L12 5.5L14.351 10.39L19.608 11.16L15.804 14.795L16.702 20.09L12 17.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                </svg>
-              </div>
-              <h3>Valoraciones</h3>
-              <p>Sistema de reputación bilateral para mejorar confianza y calidad operativa.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M21 15C21 16.105 20.105 17 19 17H8L4 21V5C4 3.895 4.895 3 6 3H19C20.105 3 21 3.895 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                </svg>
-              </div>
-              <h3>Chat integrado</h3>
-              <p>Comunicación contextual entre empresa y trabajador sin salir de la plataforma.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 3V21M17 3V21M3 7H21M3 17H21" stroke="currentColor" stroke-width="2"></path>
-                </svg>
-              </div>
-              <h3>Historial de trabajos</h3>
-              <p>Registro de turnos realizados, incidencias, evaluaciones y frecuencia de colaboración.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19V10M10 19V5M16 19V13M22 19V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </div>
-              <h3>Estadísticas</h3>
-              <p>Métricas sobre cobertura, aceptación, tiempo de respuesta y rendimiento operativo.</p>
-            </article>
-
-            <article class="card feature-card">
-              <div class="feature-card__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="2"></rect>
-                  <rect x="13" y="3" width="8" height="5" rx="2" stroke="currentColor" stroke-width="2"></rect>
-                  <rect x="13" y="12" width="8" height="9" rx="2" stroke="currentColor" stroke-width="2"></rect>
-                  <rect x="3" y="15" width="8" height="6" rx="2" stroke="currentColor" stroke-width="2"></rect>
-                </svg>
-              </div>
-              <h3>Dashboard</h3>
-              <p>Paneles separados por rol con toda la información relevante en tiempo real.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="mockups" class="section section--soft anchor-offset" aria-labelledby="mockups-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Mockups de la App</span>
-            <h2 id="mockups-title" class="section__title">Galería base de pantallas para producto y validación</h2>
-            <p class="section__lead">
-              Estructura lista para convertirse en carrusel con JavaScript o integrarse con imágenes reales del producto.
-            </p>
-          </div>
-
-          <div class="mockups" aria-label="Galería de pantallas de la aplicación">
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Inicio</span><span>09:41</span></div>
-                <div class="screen__block"><strong>Resumen del día</strong><br /><small>Turnos abiertos, candidatos y alertas.</small></div>
-                <div class="screen__block"><strong>Actividad reciente</strong><br /><small>Confirmaciones y solicitudes en curso.</small></div>
-                <div class="screen__footer"><span></span><span style="background:var(--color-primary);"></span><span></span></div>
-              </div>
-            </article>
-
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Match</span><span>95%</span></div>
-                <div class="screen__block"><strong>Candidatos top</strong><br /><small>3 perfiles priorizados por IA.</small></div>
-                <div class="screen__block"><strong>Comparativa</strong><br /><small>Experiencia, distancia y rating.</small></div>
-                <div class="screen__footer"><span></span><span style="background:var(--color-primary);"></span><span></span></div>
-              </div>
-            </article>
-
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Calendario</span><span>Semana</span></div>
-                <div class="screen__block"><strong>Disponibilidad</strong><br /><small>Franjas activas y ocupación por día.</small></div>
-                <div class="screen__block"><strong>Vista semanal</strong><br /><small>Turnos aceptados y pendientes.</small></div>
-                <div class="screen__footer"><span></span><span></span><span style="background:var(--color-primary);"></span></div>
-              </div>
-            </article>
-
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Solicitud de turno</span><span>Nuevo</span></div>
-                <div class="screen__block"><strong>Puesto</strong><br /><small>Camarero, recepción, cocina o eventos.</small></div>
-                <div class="screen__block"><strong>Condiciones</strong><br /><small>Horario, tarifa y ubicación.</small></div>
-                <div class="screen__footer"><span style="background:var(--color-primary);"></span><span></span><span></span></div>
-              </div>
-            </article>
-
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Perfil trabajador</span><span>4.9</span></div>
-                <div class="screen__block"><strong>Experiencia</strong><br /><small>Hostelería, turismo y eventos.</small></div>
-                <div class="screen__block"><strong>Preferencias</strong><br /><small>Disponibilidad, salario mínimo y zona.</small></div>
-                <div class="screen__footer"><span></span><span style="background:var(--color-primary);"></span><span></span></div>
-              </div>
-            </article>
-
-            <article class="screen-card">
-              <div class="screen">
-                <div class="screen__topbar"><span>Perfil empresa</span><span>Activo</span></div>
-                <div class="screen__block"><strong>Sedes</strong><br /><small>Ubicaciones y demanda habitual.</small></div>
-                <div class="screen__block"><strong>Historial</strong><br /><small>Turnos cubiertos, valoraciones y facturación.</small></div>
-                <div class="screen__footer"><span></span><span></span><span style="background:var(--color-primary);"></span></div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="planes" class="section anchor-offset" aria-labelledby="planes-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Planes</span>
-            <h2 id="planes-title" class="section__title">Modelo simple para empezar y escalar</h2>
-          </div>
-
-          <div class="plans">
-            <article class="card plan-card plan-card--featured">
-              <span class="badge">Plan base</span>
-              <h3>Plan Empresa</h3>
-              <p>Ideal para negocios que quieren digitalizar la cobertura de turnos y centralizar operaciones.</p>
-              <div class="plan-card__price">
-                <strong>40€</strong>
-                <span>/ mes</span>
-              </div>
-              <ul class="list">
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Publicación y gestión de solicitudes de turno.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Panel empresa con candidatos, calendario e historial.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Notificaciones y trazabilidad básica.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Facturación y gestión de cuenta.
-                </li>
-              </ul>
-              <div style="margin-top:18px;">
-                <a class="btn btn--primary" href="#registro-empresa">Empezar ahora</a>
-              </div>
-            </article>
-
-            <article class="card plan-card">
-              <span class="badge" style="background:rgba(34,197,94,0.12); color:var(--color-success-dark);">Add-on premium</span>
-              <h3>Gestión Inteligente</h3>
-              <p>Capa adicional de automatización y analítica avanzada para optimizar cobertura y rendimiento.</p>
-              <div class="plan-card__price">
-                <strong>20€</strong>
-                <span>/ mes</span>
-              </div>
-              <ul class="list">
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Matching automático con shortlist priorizada.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Estadísticas de aceptación, cobertura y tiempos de respuesta.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Recomendaciones operativas por demanda o temporada.
-                </li>
-                <li>
-                  <svg class="list__check" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                  Mejor experiencia de decisión para managers.
-                </li>
-              </ul>
-              <div style="margin-top:18px;">
-                <a class="btn btn--secondary" href="#registro-empresa">Empezar ahora</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="casos-uso" class="section section--soft anchor-offset" aria-labelledby="casos-uso-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Casos de uso</span>
-            <h2 id="casos-uso-title" class="section__title">Tres escenarios donde IA Job aporta valor inmediato</h2>
-          </div>
-
-          <div class="grid grid--3">
-            <article class="card use-case">
-              <h3>Restaurante</h3>
-              <p>Un pico inesperado de reservas exige reforzar sala y terraza en pocas horas.</p>
-              <div class="mini-flow">
-                <div class="mini-flow__item"><strong>1.</strong> El gerente crea turno de camarero.</div>
-                <div class="mini-flow__item"><strong>2.</strong> La IA prioriza perfiles cercanos con experiencia en servicio rápido.</div>
-                <div class="mini-flow__item"><strong>3.</strong> El turno se confirma y queda registrado.</div>
-              </div>
-            </article>
-
-            <article class="card use-case">
-              <h3>Hotel</h3>
-              <p>Se necesita cubrir recepción o housekeeping durante una ocupación alta o una baja de última hora.</p>
-              <div class="mini-flow">
-                <div class="mini-flow__item"><strong>1.</strong> El hotel define puesto, idioma y franja horaria.</div>
-                <div class="mini-flow__item"><strong>2.</strong> La IA sugiere trabajadores compatibles y disponibles.</div>
-                <div class="mini-flow__item"><strong>3.</strong> La supervisión valida y activa la incorporación.</div>
-              </div>
-            </article>
-
-            <article class="card use-case">
-              <h3>Evento</h3>
-              <p>Una feria, catering o congreso requiere personal temporal en montaje, atención o apoyo operativo.</p>
-              <div class="mini-flow">
-                <div class="mini-flow__item"><strong>1.</strong> El organizador crea varios turnos y puestos.</div>
-                <div class="mini-flow__item"><strong>2.</strong> La plataforma distribuye candidatos por afinidad y volumen.</div>
-                <div class="mini-flow__item"><strong>3.</strong> El equipo queda coordinado desde el panel central.</div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="testimonios" class="section anchor-offset" aria-labelledby="testimonios-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Testimonios</span>
-            <h2 id="testimonios-title" class="section__title">Estructura preparada para prueba social futura</h2>
-            <p class="section__lead">
-              Sección lista para integrar testimonios reales, valoraciones verificadas, logos de clientes o casos de éxito.
-            </p>
-          </div>
-
-          <div class="grid grid--2">
-            <article class="card testimonial-card">
-              <div>
-                <h3>Empresas</h3>
-                <div class="testimonial-placeholder">
-                  Espacio reservado para testimonios de restaurantes, hoteles, grupos de restauración y organizadores de eventos.
-                </div>
-              </div>
-              <small style="color:var(--color-text-soft);">Preparado para slider, citas o logos.</small>
-            </article>
-
-            <article class="card testimonial-card">
-              <div>
-                <h3>Trabajadores</h3>
-                <div class="testimonial-placeholder">
-                  Espacio reservado para testimonios de camareros, recepcionistas, personal de eventos y perfiles temporales.
-                </div>
-              </div>
-              <small style="color:var(--color-text-soft);">Preparado para reseñas, ratings y perfiles destacados.</small>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="section section--soft anchor-offset" aria-labelledby="faq-title">
-        <div class="container">
-          <div class="section__header">
-            <span class="section__eyebrow">Preguntas frecuentes</span>
-            <h2 id="faq-title" class="section__title">Dudas habituales antes de empezar</h2>
-          </div>
-
-          <div class="faq" aria-label="Preguntas frecuentes">
-            <details class="faq__item">
-              <summary class="faq__button">¿Tengo permanencia?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                No. La estructura base de la plataforma está planteada para un modelo flexible, ideal para negocios con actividad variable o estacional.
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__button">¿Cómo se paga?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                La base HTML está preparada para integrar pagos recurrentes, facturación y métodos de cobro mediante pasarela externa o backend propio.
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__button">¿Quién contrata?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                La empresa que publica la necesidad es quien define condiciones, valida al candidato y formaliza el marco contractual correspondiente.
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__button">¿Qué ocurre si un trabajador cancela?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                La plataforma puede volver a activar el matching, lanzar candidatos alternativos y registrar la incidencia para futuras decisiones operativas.
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__button">¿Cómo funciona la IA?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                Analiza variables como disponibilidad, experiencia, ubicación, valoraciones, historial y afinidad con el tipo de turno para priorizar candidatos.
-              </div>
-            </details>
-
-            <details class="faq__item">
-              <summary class="faq__button">¿Puedo usar la plataforma solo en verano?
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-                </svg>
-              </summary>
-              <div class="faq__panel">
-                Sí. Está especialmente pensada para negocios con estacionalidad, campañas concretas, picos de ocupación y necesidades temporales.
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section id="cta-final" class="section anchor-offset" aria-labelledby="cta-title">
-        <div class="container">
-          <div class="cta">
-            <span class="section__eyebrow" style="background:rgba(255,255,255,0.14); color:#fff;">Empieza hoy</span>
-            <h2 id="cta-title" class="section__title" style="color:#fff; margin-bottom:10px;">
-              Empieza a cubrir turnos de forma inteligente
-            </h2>
-            <p class="section__lead" style="color:rgba(255,255,255,0.86); max-width:700px;">
-              Una base sólida para conectar demanda y disponibilidad en tiempo real, con estructura lista para integraciones,
-              backend, automatizaciones y crecimiento SaaS.
-            </p>
-            <div class="cta__actions">
-              <a class="btn btn--secondary" href="#login">Solicitar demo</a>
-              <a class="btn btn--success" href="#registro-empresa">Crear cuenta</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="portales" class="portal-section anchor-offset" aria-labelledby="portales-title">
-        <div class="container">
-          <div class="portal-header">
-            <span class="section__eyebrow">Paneles de usuario</span>
-            <h2 id="portales-title" class="section__title">Estructura preparada para autenticación y áreas privadas</h2>
-            <p class="section__lead">
-              Los siguientes bloques están listos para usarse como vistas independientes, tabs dinámicas o base de enrutamiento.
-            </p>
-          </div>
-
-          <div class="tabs" role="tablist" aria-label="Vistas de paneles">
-            <button class="tab-button is-active" type="button" data-tab-target="login-panel" role="tab" aria-selected="true">Login</button>
-            <button class="tab-button" type="button" data-tab-target="empresa-register-panel" role="tab" aria-selected="false">Registro Empresa</button>
-            <button class="tab-button" type="button" data-tab-target="worker-register-panel" role="tab" aria-selected="false">Registro Trabajador</button>
-            <button class="tab-button" type="button" data-tab-target="company-panel" role="tab" aria-selected="false">Panel Empresa</button>
-            <button class="tab-button" type="button" data-tab-target="worker-panel" role="tab" aria-selected="false">Panel Trabajador</button>
-            <button class="tab-button" type="button" data-tab-target="admin-panel" role="tab" aria-selected="false">Panel Admin</button>
-          </div>
-
-          <div class="portal-grid">
-            <section id="login-panel" class="auth-card tab-panel" aria-labelledby="login-title">
-              <h3 id="login-title">Login</h3>
-              <p class="mock-card__sub">Acceso para empresa, trabajador o administrador.</p>
-              <form class="form" action="#" method="post">
-                <div class="field">
-                  <label for="login-email">Email</label>
-                  <input id="login-email" name="email" type="email" autocomplete="email" required />
-                </div>
-                <div class="field">
-                  <label for="login-password">Contraseña</label>
-                  <input id="login-password" name="password" type="password" autocomplete="current-password" required minlength="8" />
-                </div>
-                <div class="field">
-                  <label for="login-role">Perfil</label>
-                  <select id="login-role" name="role" required>
-                    <option value="">Selecciona un perfil</option>
-                    <option value="empresa">Empresa</option>
-                    <option value="trabajador">Trabajador</option>
-                    <option value="admin">Administrador</option>
-                  </select>
-                </div>
-                <button class="btn btn--primary" type="submit">Entrar</button>
-              </form>
-            </section>
-
-            <section id="empresa-register-panel" class="auth-card tab-panel u-hidden" aria-labelledby="registro-empresa-title">
-              <h3 id="registro-empresa-title">Registro Empresa</h3>
-              <p class="mock-card__sub">Formulario base para onboarding de negocios.</p>
-              <form id="registro-empresa" class="form" action="#" method="post">
-                <div class="form__row">
-                  <div class="field">
-                    <label for="empresa-nombre">Nombre de la empresa</label>
-                    <input id="empresa-nombre" name="company_name" type="text" required />
-                  </div>
-                  <div class="field">
-                    <label for="empresa-cif">CIF / NIF</label>
-                    <input id="empresa-cif" name="company_tax_id" type="text" required />
-                  </div>
-                </div>
-              </form>
-            </section>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+
+<header>
+
+<h1>IA Job</h1>
+
+<nav>
+
+<a href="#problema">Problema</a>
+
+<a href="#funciona">Cómo funciona</a>
+
+<a href="#beneficios">Beneficios</a>
+
+<a href="#precios">Precios</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h2>El personal que necesitas, cuando lo necesitas.</h2>
+
+<p>
+
+IA Job conecta automáticamente restaurantes, hoteles y empresas de hostelería con trabajadores disponibles para cubrir turnos de forma rápida mediante Inteligencia Artificial.
+
+</p>
+
+<a href="#" class="button">Soy Empresa</a>
+
+<a href="#" class="button">Busco Trabajo</a>
+
+</section>
+
+<section id="problema">
+
+<h3>El problema</h3>
+
+<div class="cards">
+
+<div class="card">
+
+<h4>Empresas</h4>
+
+<ul>
+
+<li>Falta de personal.</li>
+
+<li>Dificultad para cubrir bajas.</li>
+
+<li>Mucho tiempo buscando candidatos.</li>
+
+<li>Pérdidas por no abrir servicios.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h4>Trabajadores</h4>
+
+<ul>
+
+<li>Turnos partidos.</li>
+
+<li>Poca flexibilidad.</li>
+
+<li>Horarios poco atractivos.</li>
+
+<li>Quieren trabajar cuando les interesa.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h4>Nuestra solución</h4>
+
+<ul>
+
+<li>Matching automático.</li>
+
+<li>Solo turnos disponibles.</li>
+
+<li>IA selecciona candidatos.</li>
+
+<li>Confirmación inmediata.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="funciona">
+
+<h3>¿Cómo funciona?</h3>
+
+<div class="steps">
+
+<div class="step">
+
+<h4>1</h4>
+
+<p>La empresa solicita un turno.</p>
+
+</div>
+
+<div class="step">
+
+<h4>2</h4>
+
+<p>La IA analiza miles de perfiles.</p>
+
+</div>
+
+<div class="step">
+
+<h4>3</h4>
+
+<p>Se muestran únicamente los 3 mejores candidatos.</p>
+
+</div>
+
+<div class="step">
+
+<h4>4</h4>
+
+<p>La empresa hace Match.</p>
+
+</div>
+
+<div class="step">
+
+<h4>5</h4>
+
+<p>El trabajador acepta.</p>
+
+</div>
+
+<div class="step">
+
+<h4>6</h4>
+
+<p>Turno cubierto.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="beneficios">
+
+<h3>Beneficios</h3>
+
+<div class="cards">
+
+<div class="card">
+
+<h4>Para Empresas</h4>
+
+<ul>
+
+<li>Menos tiempo contratando.</li>
+
+<li>Mayor productividad.</li>
+
+<li>Cubre turnos rápidamente.</li>
+
+<li>Valoraciones de trabajadores.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h4>Para Trabajadores</h4>
+
+<ul>
+
+<li>Sin turnos partidos.</li>
+
+<li>Flexibilidad.</li>
+
+<li>Ingresos extra.</li>
+
+<li>Trabajo cuando quieras.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="precios">
+
+<h3>Planes</h3>
+
+<div class="cards">
+
+<div class="price">
+
+<h4>Básico</h4>
+
+<p>40€/mes</p>
+
+<p>Matching IA</p>
+
+<p>Solicitudes ilimitadas</p>
+
+<p>Dashboard</p>
+
+<a href="#" class="button">Comenzar</a>
+
+</div>
+
+<div class="price">
+
+<h4>Gestión de Turnos</h4>
+
+<p>60€/mes</p>
+
+<p>Todo lo anterior</p>
+
+<p>Calendario</p>
+
+<p>Gestión automática</p>
+
+<a href="#" class="button">Solicitar Demo</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h3>¿Por qué IA Job?</h3>
+
+<p style="text-align:center; max-width:900px; margin:auto; font-size:20px;">
+
+No somos un portal de empleo tradicional. Nuestra Inteligencia Artificial conecta automáticamente empresas con trabajadores disponibles para cubrir turnos concretos, reduciendo el tiempo de contratación de horas a minutos.
+
+</p>
+
+</section>
+
+<footer>
+
+<h2>IA Job</h2>
+
+<p>La nueva forma de contratar personal para hostelería.</p>
+
+<br>
+
+<p>contacto@iajob.es</p>
+
+<p>© 2026 IA Job</p>
+
+</footer>
+
 </body>
+
 </html>
